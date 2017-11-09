@@ -32,7 +32,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: 'Pong!'
                 });
-            break;
+                break;
+            case 'tyme':
+                let now = new Date();
+                let hour = now.getHours();
+                let minute = now.getMinutes();
+                hour -= 1;
+                minute += 60;
+                let newtime = String(hour) + ':' + String(minute);
+                bot.sendMessage({
+                    to: channelID,
+                    message: newtime
+                });
+                break;
             // Just add any case commands if you want to..
          }
      }
